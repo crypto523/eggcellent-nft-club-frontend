@@ -1,5 +1,6 @@
 import React from "react";
+import { WelcomePageWrapper } from "./styles";
 
 export const Welcome: React.FC = () => {
-  return <div>Welcome: React.FC</div>;
+  return <WelcomePageWrapper>Welcome: React.FC</WelcomePageWrapper>;
 };
