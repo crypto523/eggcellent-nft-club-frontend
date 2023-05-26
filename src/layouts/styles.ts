@@ -118,6 +118,10 @@ export const AppSidebarWrapper = styled.div<{ isshow: string | undefined }>`
   background-color: #8459ff;
   box-shadow: 0 0 10px 5px #00000080;
   height: 100vh;
+  @media screen and (max-width: 500px) {
+    width: 50%;
+    right: ${({ isshow }) => (isshow ? "0px" : "calc(-50% + 5px)")};
+  }
 `;
 
 export const AppSidebarOverLay = styled.div<{ isshow: string | undefined }>`
