@@ -1,5 +1,18 @@
 import React from "react";
+import { AppSidebarOverLay, AppSidebarWrapper } from "./styles";
 
-export const AppSidebar: React.FC = () => {
-  return <div>AppSidebar: React.FC</div>;
+type SidebarProps = {
+  isshow: boolean;
+  onClose: () => void;
+};
+
+export const AppSidebar: React.FC<SidebarProps> = ({ isshow, onClose }) => {
+  return (
+    <>
+      <AppSidebarWrapper isshow={isshow}>
+        AppSidebar: React.FC
+      </AppSidebarWrapper>
+      <AppSidebarOverLay isshow={isshow} onClick={onClose} />
+    </>
+  );
 };

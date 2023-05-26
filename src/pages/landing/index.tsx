@@ -1,6 +1,21 @@
 import React from "react";
 import { LandingPageWrapper } from "./styles";
+import { AppLayout } from "../../layouts/AppLayout";
+import {
+  ContactSection,
+  GitBookSection,
+  RoadMapSection,
+  TeamSection,
+} from "../../modules";
 
 export const Landing: React.FC = () => {
-  return <LandingPageWrapper>Landing</LandingPageWrapper>;
+  return (
+    <AppLayout>
+      <LandingPageWrapper />
+      <GitBookSection />
+      <RoadMapSection />
+      <TeamSection />
+      <ContactSection />
+    </AppLayout>
+  );
 };

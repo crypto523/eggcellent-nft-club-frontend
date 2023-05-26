@@ -6,6 +6,7 @@ import {
   WelcomePageWrapper,
   WelcomeTitleWrapper,
 } from "./styles";
+import { useNavigate } from "react-router-dom";
 
 const WelcomeText: React.FC = () => (
   <WelcomeTitleWrapper>
@@ -36,6 +37,7 @@ const WelcomeText: React.FC = () => (
 );
 
 export const Welcome: React.FC = () => {
+  const navigete = useNavigate();
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [chickenPos, setChickenPos] =
     useState<Array<{ x: number; y: number }>>();
@@ -76,7 +78,7 @@ export const Welcome: React.FC = () => {
     <WelcomePageWrapper>
       <WelcomeText />
       <WelcomeButtonWrapper>
-        <button>Let's Explore</button>
+        <button onClick={() => navigete("/home")}>Let's Explore</button>
       </WelcomeButtonWrapper>
       <img src="/assets/images/welcome.png" className="polygon" alt="" />
       {[1, 2, 3, 4].map((item) => (

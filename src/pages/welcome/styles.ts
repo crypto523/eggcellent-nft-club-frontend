@@ -13,7 +13,7 @@ const anim = keyframes`
 `;
 
 export const WelcomePageWrapper = styled.div`
-  background-color: #fff2f2;
+  background-color: #fff;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -58,14 +58,13 @@ export const WelcomeTitleWrapper = styled.div`
     left: 0; // needed for FF, Safari, Edge
     height: 100%;
     text {
-      font-family: filson-soft;
       font-weight: 900;
       text-transform: uppercase;
       width: 100%;
       font-size: 62px;
     }
     rect {
-      fill: #fff7f7;
+      fill: #fff;
     }
     > rect {
       -webkit-mask: url(#mask);
@@ -81,10 +80,10 @@ export const WelcomeTitleWrapper = styled.div`
     }
   }
   @media screen and (max-width: 650px) {
-    max-width: 345px;
+    max-width: 320px;
     svg {
       text {
-        font-size: 32px;
+        font-size: 29px;
       }
     }
     h1 {
@@ -105,7 +104,6 @@ export const WelcomeButtonWrapper = styled.div`
     cursor: pointer;
     text-transform: uppercase;
     font-size: 24px;
-    font-family: filson-soft;
     width: 248px;
     color: #fff;
     font-weight: 800;
