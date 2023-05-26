@@ -26,7 +26,7 @@ export const WelcomePageWrapper = styled.div`
     width: 250px;
     margin-top: 20px;
     position: relative;
-    z-index: 0;
+    z-index: 1;
   }
 `;
 
