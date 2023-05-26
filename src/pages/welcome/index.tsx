@@ -51,7 +51,7 @@ export const Welcome: React.FC = () => {
       });
     }
 
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < 6; i++) {
       const rect = document.getElementById(`rect-${i + 1}`);
       tempRectPos.push({
         x: rect?.getBoundingClientRect().x || 0,
@@ -77,92 +77,28 @@ export const Welcome: React.FC = () => {
       <WelcomeText />
       <WelcomeButtonWrapper>
         <button>Let's Explore</button>
-        <img src="/assets/images/welcome.png" alt="" />
       </WelcomeButtonWrapper>
-      <ChickImgWrapper
-        id="chick-1"
-        pos={mousePos}
-        selfPos={chickenPos ? chickenPos[0] : { x: 0, y: 0 }}
-      >
-        <img src="/assets/images/chick1.svg" alt="" />
-      </ChickImgWrapper>
-      <ChickImgWrapper
-        id="chick-2"
-        pos={mousePos}
-        selfPos={chickenPos ? chickenPos[1] : { x: 0, y: 0 }}
-      >
-        <img src="/assets/images/chick2.svg" alt="" />
-      </ChickImgWrapper>
-      <ChickImgWrapper
-        id="chick-3"
-        pos={mousePos}
-        selfPos={chickenPos ? chickenPos[2] : { x: 0, y: 0 }}
-      >
-        <img src="/assets/images/chick3.svg" alt="" />
-      </ChickImgWrapper>
-      <ChickImgWrapper
-        id="chick-4"
-        pos={mousePos}
-        selfPos={chickenPos ? chickenPos[3] : { x: 0, y: 0 }}
-      >
-        <img src="/assets/images/chick4.svg" alt="" />
-      </ChickImgWrapper>
-      <RectImgWrapper
-        id="rect-1"
-        pos={mousePos}
-        selfPos={rectPos ? rectPos[0] : { x: 0, y: 0 }}
-      >
-        <img src="/assets/images/rect1.png" alt="" />
-      </RectImgWrapper>
-      <RectImgWrapper
-        id="rect-2"
-        pos={mousePos}
-        selfPos={rectPos ? rectPos[0] : { x: 0, y: 0 }}
-      >
-        <img src="/assets/images/rect2.png" alt="" />
-      </RectImgWrapper>
-      <RectImgWrapper
-        id="rect-3"
-        pos={mousePos}
-        selfPos={rectPos ? rectPos[0] : { x: 0, y: 0 }}
-      >
-        <img src="/assets/images/rect3.png" alt="" />
-      </RectImgWrapper>
-      <RectImgWrapper
-        id="rect-4"
-        pos={mousePos}
-        selfPos={rectPos ? rectPos[0] : { x: 0, y: 0 }}
-      >
-        <img src="/assets/images/rect4.png" alt="" />
-      </RectImgWrapper>
-      <RectImgWrapper
-        id="rect-5"
-        pos={mousePos}
-        selfPos={rectPos ? rectPos[0] : { x: 0, y: 0 }}
-      >
-        <img src="/assets/images/rect5.png" alt="" />
-      </RectImgWrapper>
-      <RectImgWrapper
-        id="rect-6"
-        pos={mousePos}
-        selfPos={rectPos ? rectPos[0] : { x: 0, y: 0 }}
-      >
-        <img src="/assets/images/rect6.png" alt="" />
-      </RectImgWrapper>
-      <RectImgWrapper
-        id="rect-7"
-        pos={mousePos}
-        selfPos={rectPos ? rectPos[0] : { x: 0, y: 0 }}
-      >
-        <img src="/assets/images/rect7.png" alt="" />
-      </RectImgWrapper>
-      <RectImgWrapper
-        id="rect-8"
-        pos={mousePos}
-        selfPos={rectPos ? rectPos[0] : { x: 0, y: 0 }}
-      >
-        <img src="/assets/images/rect8.png" alt="" />
-      </RectImgWrapper>
+      <img src="/assets/images/welcome.png" className="polygon" alt="" />
+      {[1, 2, 3, 4].map((item) => (
+        <ChickImgWrapper
+          id={`chick-${item}`}
+          pos={mousePos}
+          key={item}
+          selfpos={chickenPos ? chickenPos[item - 1] : { x: 0, y: 0 }}
+        >
+          <img src={`/assets/images/chick${item}.svg`} alt="" />
+        </ChickImgWrapper>
+      ))}
+      {[1, 2, 3, 4, 5, 6].map((item) => (
+        <RectImgWrapper
+          key={item}
+          id={`rect-${item}`}
+          pos={mousePos}
+          selfpos={rectPos ? rectPos[item - 1] : { x: 0, y: 0 }}
+        >
+          <img src={`/assets/images/rect${item}.png`} alt="" />
+        </RectImgWrapper>
+      ))}
     </WelcomePageWrapper>
   );
 };

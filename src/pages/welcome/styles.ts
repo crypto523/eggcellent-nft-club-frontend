@@ -22,13 +22,19 @@ export const WelcomePageWrapper = styled.div`
   justify-content: center;
   width: 100vw;
   height: 100vh;
+  img.polygon {
+    width: 250px;
+    margin-top: 20px;
+    position: relative;
+    z-index: 0;
+  }
 `;
 
 export const WelcomeTitleWrapper = styled.div`
   position: relative;
-  z-index: 2;
+  z-index: 0;
   width: 100%;
-  max-width: 800px;
+  max-width: 670px;
   height: fit-content;
   display: flex;
   align-items: center;
@@ -56,7 +62,7 @@ export const WelcomeTitleWrapper = styled.div`
       font-weight: 900;
       text-transform: uppercase;
       width: 100%;
-      font-size: 72px;
+      font-size: 62px;
     }
     rect {
       fill: #fff7f7;
@@ -109,15 +115,11 @@ export const WelcomeButtonWrapper = styled.div`
     border-radius: 68px;
     height: 68px;
   }
-  img {
-    width: 250px;
-    margin-top: 20px;
-  }
 `;
 
 export const RectImgWrapper = styled.div<{
   pos: { x: number; y: number };
-  selfPos: { x: number; y: number };
+  selfpos: { x: number; y: number };
 }>`
   position: absolute;
   transition: all 0.3s ease-in-out;
@@ -129,9 +131,9 @@ export const RectImgWrapper = styled.div<{
     }
     top: -10%;
     left: 45%;
-    transform: ${({ pos, selfPos }) =>
-      `translateX(${(pos.x - selfPos.x) / 15}px) translateY(${
-        (pos.y - selfPos.y) / 20
+    transform: ${({ pos, selfpos }) =>
+      `translateX(${(pos.x - selfpos.x) / 15}px) translateY(${
+        (pos.y - selfpos.y) / 20
       }px)`};
   }
   &#rect-2 {
@@ -142,9 +144,9 @@ export const RectImgWrapper = styled.div<{
     width: 19%;
     top: 10%;
     left: 3%;
-    transform: ${({ pos, selfPos }) =>
-      `translateX(${(pos.x - selfPos.x) / 17}px) translateY(${
-        (pos.y - selfPos.y) / 17
+    transform: ${({ pos, selfpos }) =>
+      `translateX(${(pos.x - selfpos.x) / 17}px) translateY(${
+        (pos.y - selfpos.y) / 17
       }px)`};
   }
   &#rect-3 {
@@ -155,9 +157,9 @@ export const RectImgWrapper = styled.div<{
     width: 23%;
     bottom: -10%;
     left: -5%;
-    transform: ${({ pos, selfPos }) =>
-      `translateX(${(pos.x - selfPos.x) / 25}px) translateY(${
-        (pos.y - selfPos.y) / 30
+    transform: ${({ pos, selfpos }) =>
+      `translateX(${(pos.x - selfpos.x) / 25}px) translateY(${
+        (pos.y - selfpos.y) / 30
       }px)`};
   }
   &#rect-4 {
@@ -168,9 +170,9 @@ export const RectImgWrapper = styled.div<{
     width: 25%;
     right: -5%;
     bottom: -10%;
-    transform: ${({ pos, selfPos }) =>
-      `translateX(${(pos.x - selfPos.x) / 21}px) translateY(${
-        (pos.y - selfPos.y) / 15
+    transform: ${({ pos, selfpos }) =>
+      `translateX(${(pos.x - selfpos.x) / 21}px) translateY(${
+        (pos.y - selfpos.y) / 15
       }px)`};
   }
   &#rect-5 {
@@ -180,10 +182,10 @@ export const RectImgWrapper = styled.div<{
     }
     width: 15%;
     right: 7%;
-    bottom: 40%;
-    transform: ${({ pos, selfPos }) =>
-      `translateX(${(pos.x - selfPos.x) / 26}px) translateY(${
-        (pos.y - selfPos.y) / 30
+    bottom: 37%;
+    transform: ${({ pos, selfpos }) =>
+      `translateX(${(pos.x - selfpos.x) / 26}px) translateY(${
+        (pos.y - selfpos.y) / 30
       }px)`};
   }
   &#rect-6 {
@@ -194,16 +196,16 @@ export const RectImgWrapper = styled.div<{
     width: 10%;
     left: 23%;
     bottom: 30%;
-    transform: ${({ pos, selfPos }) =>
-      `translateX(${(pos.x - selfPos.x) / 30}px) translateY(${
-        (pos.y - selfPos.y) / 20
+    transform: ${({ pos, selfpos }) =>
+      `translateX(${(pos.x - selfpos.x) / 30}px) translateY(${
+        (pos.y - selfpos.y) / 20
       }px)`};
   }
 `;
 
 export const ChickImgWrapper = styled.div<{
   pos: { x: number; y: number };
-  selfPos: { x: number; y: number };
+  selfpos: { x: number; y: number };
 }>`
   position: absolute;
   z-index: 1;
@@ -216,9 +218,9 @@ export const ChickImgWrapper = styled.div<{
     width: 12%;
     top: 8%;
     left: 13%;
-    transform: ${({ pos, selfPos }) =>
-      `translateX(${(pos.x - selfPos.x) / 30}px) translateY(${
-        (pos.y - selfPos.y) / 30
+    transform: ${({ pos, selfpos }) =>
+      `translateX(${(pos.x - selfpos.x) / 30}px) translateY(${
+        (pos.y - selfpos.y) / 30
       }px)`};
   }
   &#chick-2 {
@@ -229,9 +231,9 @@ export const ChickImgWrapper = styled.div<{
     width: 12%;
     top: 5%;
     right: 13%;
-    transform: ${({ pos, selfPos }) =>
-      `translateX(${(pos.x - selfPos.x) / 22}px) translateY(${
-        (pos.y - selfPos.y) / 22
+    transform: ${({ pos, selfpos }) =>
+      `translateX(${(pos.x - selfpos.x) / 22}px) translateY(${
+        (pos.y - selfpos.y) / 22
       }px)`};
   }
   &#chick-3 {
@@ -242,9 +244,9 @@ export const ChickImgWrapper = styled.div<{
     width: 12%;
     bottom: 10%;
     left: 12%;
-    transform: ${({ pos, selfPos }) =>
-      `translateX(${(pos.x - selfPos.x) / 23}px) translateY(${
-        (pos.y - selfPos.y) / 23
+    transform: ${({ pos, selfpos }) =>
+      `translateX(${(pos.x - selfpos.x) / 23}px) translateY(${
+        (pos.y - selfpos.y) / 23
       }px)`};
   }
   &#chick-4 {
@@ -255,9 +257,14 @@ export const ChickImgWrapper = styled.div<{
     width: 12%;
     bottom: 12%;
     right: 12%;
-    transform: ${({ pos, selfPos }) =>
-      `translateX(${(pos.x - selfPos.x) / 25}px) translateY(${
-        (pos.y - selfPos.y) / 25
+    transform: ${({ pos, selfpos }) =>
+      `translateX(${(pos.x - selfpos.x) / 25}px) translateY(${
+        (pos.y - selfpos.y) / 25
       }px)`};
+  }
+  @media screen and (max-width: 768px) {
+    & {
+      width: 20% !important;
+    }
   }
 `;
