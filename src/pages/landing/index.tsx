@@ -11,7 +11,7 @@ import {
 export const Landing: React.FC = () => {
   return (
     <AppLayout>
-      <LandingPageWrapper />
+      <LandingPageWrapper id="home" />
       <GitBookSection />
       <RoadMapSection />
       <TeamSection />

@@ -3,7 +3,7 @@ import { ImageWrapper, RoadmapWrapper } from "./styles";
 
 export const RoadMapSection: React.FC = () => {
   return (
-    <RoadmapWrapper>
+    <RoadmapWrapper id="roadmap">
       <h1>ROADMAP</h1>
       <h3>WHERE DREAMS COME TRUE</h3>
       <ImageWrapper>

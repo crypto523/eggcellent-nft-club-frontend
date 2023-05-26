@@ -31,16 +31,12 @@ export const Header: React.FC<HeaderProps> = ({ onMenuOpen }) => {
 
   return (
     <HeaderWrapper className={header ? "header" : ""}>
-      <HeaderLogo>
+      <HeaderLogo onClick={() => navigate("/")}>
         <img src="/assets/images/logo.png" alt="" />
       </HeaderLogo>
       <HeaderNavWrapper>
         {headerData.map((item, key) => (
-          <NavItem
-            className={header ? "header" : ""}
-            key={key}
-            onClick={() => navigate(item.to)}
-          >
+          <NavItem key={key} href={item.to}>
             {item.label}
           </NavItem>
         ))}

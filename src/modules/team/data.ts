@@ -16,7 +16,7 @@ export const teams = [
   },
   {
     name: "Jordan",
-    role: "Team (Toultry Expert)",
+    role: "Team (Poultry Expert)",
     image: "/assets/images/team/Jordan.png",
   },
 ];

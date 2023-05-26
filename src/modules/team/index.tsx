@@ -10,7 +10,7 @@ import { teams } from "./data";
 
 export const TeamSection: React.FC = () => {
   return (
-    <TeamWrapper>
+    <TeamWrapper id="team">
       <TeamTitle>TEAM PROFILE</TeamTitle>
       <TeamDescription>
         Lörem ipsum tirinar ambitism agnostivision dise, ontoform ett neling.

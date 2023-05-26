@@ -15,7 +15,8 @@ export const HeaderWrapper = styled.div`
   padding: 0 95px;
   background-color: transparent;
   &.header {
-    background-color: #fff;
+    background-color: #ffffff40;
+    backdrop-filter: blur(10px);
     box-shadow: 0 0 10px 10px #000000a0;
   }
   @media screen and (max-width: 768px) {
@@ -25,6 +26,7 @@ export const HeaderWrapper = styled.div`
 `;
 
 export const HeaderLogo = styled.div`
+  cursor: pointer;
   img {
     width: 100%;
   }
@@ -42,13 +44,23 @@ export const HeaderNavWrapper = styled.div`
   }
 `;
 
-export const NavItem = styled.div`
+export const NavItem = styled.a`
   cursor: pointer;
   font-size: 24px;
+  text-decoration: none;
   font-weight: 700;
   color: #000;
+  &.sidebar {
+    width: fit-content;
+    font-size: 22px;
+    color: #fff;
+  }
   &:not(:first-child) {
     margin-left: 80px;
+    &.sidebar {
+      margin-left: 0;
+      margin-top: 40px;
+    }
   }
 `;
 
@@ -94,7 +106,8 @@ export const HeaderMobileButton = styled.div`
 
 export const FooterWrapper = styled.div``;
 
-export const AppSidebarWrapper = styled.div<{ isshow: boolean }>`
+export const AppSidebarWrapper = styled.div<{ isshow: string | undefined }>`
+  color: #fff;
   position: fixed;
   z-index: 12;
   max-width: 430px;
@@ -107,7 +120,7 @@ export const AppSidebarWrapper = styled.div<{ isshow: boolean }>`
   height: 100vh;
 `;
 
-export const AppSidebarOverLay = styled.div<{ isshow: boolean }>`
+export const AppSidebarOverLay = styled.div<{ isshow: string | undefined }>`
   position: fixed;
   z-index: 11;
   width: 100vw;
@@ -120,3 +133,37 @@ export const AppSidebarOverLay = styled.div<{ isshow: boolean }>`
 `;
 
 export const AppContentWrapper = styled.div``;
+
+export const CloseButton = styled.div`
+  font-size: 40px;
+  width: 50px;
+  position: absolute;
+  cursor: pointer;
+  right: 16px;
+  top: 16px;
+  height: 50px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const SidebarNavbar = styled.div`
+  padding: 100px 30px;
+  display: flex;
+  flex-direction: column;
+`;
+
+export const NavMint = styled.div`
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-size: 22px;
+  text-decoration: none;
+  font-weight: 700;
+  img {
+    height: 20px;
+    margin-right: 15px;
+  }
+  margin-top: 40px;
+`;
