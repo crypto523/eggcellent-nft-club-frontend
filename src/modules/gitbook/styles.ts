@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
 
 export const GitbookWrapper = styled.div`
-  padding: 70px 0;
+  padding: 100px 0;
   background: url("/assets/images/rect6.png") no-repeat,
     url("/assets/images/rect2.png") no-repeat,
     url("/assets/images/rect4.png") no-repeat, #fbf2ff;
