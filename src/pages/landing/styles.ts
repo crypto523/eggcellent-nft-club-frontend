@@ -33,6 +33,19 @@ export const LandingPageWrapper = styled.div`
     }
   }
   @media screen and (max-width: 768px) {
-    padding-top: 75px;
+    h1 {
+      font-size: 50px;
+      span {
+        font-size: 45px;
+      }
+    }
+  }
+  @media screen and (max-width: 500px) {
+    h1 {
+      font-size: 35px;
+      span {
+        font-size: 30px;
+      }
+    }
   }
 `;
