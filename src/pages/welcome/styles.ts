@@ -122,11 +122,12 @@ export const RectImgWrapper = styled.div<{
   position: absolute;
   transition: all 0.3s ease-in-out;
   &#rect-1 {
+    width: 15%;
     img {
       animation: ${anim} 2.5s ease-in-out infinite;
-      width: 290px;
+      width: 100%;
     }
-    top: -100px;
+    top: -10%;
     left: 45%;
     transform: ${({ pos, selfPos }) =>
       `translateX(${(pos.x - selfPos.x) / 15}px) translateY(${
@@ -136,10 +137,11 @@ export const RectImgWrapper = styled.div<{
   &#rect-2 {
     img {
       animation: ${anim} 3s ease-in-out infinite;
-      width: 250px;
+      width: 100%;
     }
-    top: 100px;
-    left: 70px;
+    width: 19%;
+    top: 10%;
+    left: 3%;
     transform: ${({ pos, selfPos }) =>
       `translateX(${(pos.x - selfPos.x) / 17}px) translateY(${
         (pos.y - selfPos.y) / 17
@@ -148,10 +150,11 @@ export const RectImgWrapper = styled.div<{
   &#rect-3 {
     img {
       animation: ${anim} 2.7s ease-in-out infinite;
-      width: 400px;
+      width: 100%;
     }
-    bottom: -100px;
-    left: -100px;
+    width: 23%;
+    bottom: -10%;
+    left: -5%;
     transform: ${({ pos, selfPos }) =>
       `translateX(${(pos.x - selfPos.x) / 25}px) translateY(${
         (pos.y - selfPos.y) / 30
@@ -160,10 +163,11 @@ export const RectImgWrapper = styled.div<{
   &#rect-4 {
     img {
       animation: ${anim} 3.1s ease-in-out infinite;
-      width: 500px;
+      width: 100%;
     }
-    right: -100px;
-    bottom: -100px;
+    width: 25%;
+    right: -5%;
+    bottom: -10%;
     transform: ${({ pos, selfPos }) =>
       `translateX(${(pos.x - selfPos.x) / 21}px) translateY(${
         (pos.y - selfPos.y) / 15
@@ -172,10 +176,11 @@ export const RectImgWrapper = styled.div<{
   &#rect-5 {
     img {
       animation: ${anim} 2.5s ease-in-out infinite;
-      width: 250px;
+      width: 100%;
     }
-    right: 150px;
-    bottom: 350px;
+    width: 15%;
+    right: 7%;
+    bottom: 40%;
     transform: ${({ pos, selfPos }) =>
       `translateX(${(pos.x - selfPos.x) / 26}px) translateY(${
         (pos.y - selfPos.y) / 30
@@ -184,10 +189,11 @@ export const RectImgWrapper = styled.div<{
   &#rect-6 {
     img {
       animation: ${anim} 2.5s ease-in-out infinite;
-      width: 200px;
+      width: 100%;
     }
-    left: 400px;
-    bottom: 250px;
+    width: 10%;
+    left: 23%;
+    bottom: 30%;
     transform: ${({ pos, selfPos }) =>
       `translateX(${(pos.x - selfPos.x) / 30}px) translateY(${
         (pos.y - selfPos.y) / 20
@@ -205,9 +211,11 @@ export const ChickImgWrapper = styled.div<{
   &#chick-1 {
     img {
       animation: ${anim} 2.5s ease-in-out infinite;
+      width: 100%;
     }
-    top: 130px;
-    left: 270px;
+    width: 12%;
+    top: 8%;
+    left: 13%;
     transform: ${({ pos, selfPos }) =>
       `translateX(${(pos.x - selfPos.x) / 30}px) translateY(${
         (pos.y - selfPos.y) / 30
@@ -216,9 +224,11 @@ export const ChickImgWrapper = styled.div<{
   &#chick-2 {
     img {
       animation: ${anim} 2.8s ease-in-out infinite;
+      width: 100%;
     }
-    top: 100px;
-    right: 200px;
+    width: 12%;
+    top: 5%;
+    right: 13%;
     transform: ${({ pos, selfPos }) =>
       `translateX(${(pos.x - selfPos.x) / 22}px) translateY(${
         (pos.y - selfPos.y) / 22
@@ -227,9 +237,11 @@ export const ChickImgWrapper = styled.div<{
   &#chick-3 {
     img {
       animation: ${anim} 2.3s ease-in-out infinite;
+      width: 100%;
     }
-    bottom: 100px;
-    left: 240px;
+    width: 12%;
+    bottom: 10%;
+    left: 12%;
     transform: ${({ pos, selfPos }) =>
       `translateX(${(pos.x - selfPos.x) / 23}px) translateY(${
         (pos.y - selfPos.y) / 23
@@ -238,9 +250,11 @@ export const ChickImgWrapper = styled.div<{
   &#chick-4 {
     img {
       animation: ${anim} 3s ease-in-out infinite;
+      width: 100%;
     }
-    bottom: 100px;
-    right: 200px;
+    width: 12%;
+    bottom: 12%;
+    right: 12%;
     transform: ${({ pos, selfPos }) =>
       `translateX(${(pos.x - selfPos.x) / 25}px) translateY(${
         (pos.y - selfPos.y) / 25
