@@ -4,7 +4,7 @@ export const GitbookWrapper = styled.div`
   padding: 70px 0;
   background: url("/assets/images/rect6.png") no-repeat,
     url("/assets/images/rect2.png") no-repeat,
-    url("/assets/images/rect4.png") no-repeat, #fff8f3;
+    url("/assets/images/rect4.png") no-repeat, #fbf2ff;
   background-position: 50px 50px, 100% 80px, 45% 100%;
   background-size: 20%, 30%, 25%;
   @media screen and (max-width: 768px) {

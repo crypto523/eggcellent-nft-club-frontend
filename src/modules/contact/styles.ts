@@ -80,4 +80,7 @@ export const Communities = styled.div`
       height: 48px;
     }
   }
+  @media screen and (max-width: 768px) {
+    justify-content: center;
+  }
 `;

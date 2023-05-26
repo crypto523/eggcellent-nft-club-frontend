@@ -23,8 +23,20 @@ export const GitBookSection: React.FC = () => {
             tillväxtföretag inte computer vison. RFID personalisering.
           </p>
           <GitbookButtonGroup>
-            <GitbookButton className="join">Join Discord</GitbookButton>
-            <GitbookButton className="check">Check Twitter</GitbookButton>
+            <GitbookButton
+              className="join"
+              href="https://discord.gg/RQDcjGqkEw"
+              target="_blank"
+            >
+              Join Discord
+            </GitbookButton>
+            <GitbookButton
+              className="check"
+              href="https://twitter.com/EggcellentClub"
+              target="_blank"
+            >
+              Check Twitter
+            </GitbookButton>
           </GitbookButtonGroup>
         </GitbookDescription>
         <GitbookImg>
