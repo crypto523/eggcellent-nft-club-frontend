@@ -51,12 +51,12 @@ export const WelcomeTitleWrapper = styled.div`
   }
 
   svg {
-    width: 100%;
+    width: calc(100% + 10px);
     position: absolute;
     z-index: 2;
     top: 0;
     left: 0; // needed for FF, Safari, Edge
-    height: 100%;
+    height: calc(100% + 10px);
     text {
       font-weight: 900;
       text-transform: uppercase;

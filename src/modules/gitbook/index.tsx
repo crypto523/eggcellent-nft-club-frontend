@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   GitbookButton,
   GitbookButtonGroup,
@@ -9,14 +9,51 @@ import {
 } from "./styles";
 
 export const GitBookSection: React.FC = () => {
+  const title1 = "EGGCELENT";
+  const title2 = "PROJECT";
+  const title3 = "NET";
+  const title4 = "COLLECTION";
+  const [anim, setAnim] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const handleScroll = () => {
+    const titleElem = document
+      .getElementById("gitbook-title")
+      ?.getBoundingClientRect().top;
+    if (window.innerHeight >= Number(titleElem) && Number(titleElem) >= 0) {
+      setAnim(true);
+    } else {
+      setAnim(false);
+    }
+  };
   return (
-    <GitbookWrapper id="gitbook">
+    <GitbookWrapper>
       <GitbookContent>
         <GitbookDescription>
-          <h1>
-            EGGCELENT PROJECT
+          <h1 id="gitbook-title" className={anim ? "anim" : ""}>
+            {title1.split("").map((item, key) => (
+              <b key={key}>{item}</b>
+            ))}
+            &nbsp;
+            {title2.split("").map((item, key) => (
+              <b key={key}>{item}</b>
+            ))}
             <br />
-            <span>NET COLLECTION</span>
+            <span>
+              {title3.split("").map((item, key) => (
+                <b key={key}>{item}</b>
+              ))}
+              &nbsp;
+              {title4.split("").map((item, key) => (
+                <b key={key}>{item}</b>
+              ))}
+            </span>
           </h1>
           <p>
             Lörem ipsum sMF hykaligt athleisure facial recognition vertikal,

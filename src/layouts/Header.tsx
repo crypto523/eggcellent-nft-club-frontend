@@ -36,7 +36,11 @@ export const Header: React.FC<HeaderProps> = ({ onMenuOpen }) => {
       </HeaderLogo>
       <HeaderNavWrapper>
         {headerData.map((item, key) => (
-          <NavItem key={key} href={item.to}>
+          <NavItem
+            key={key}
+            href={item.to}
+            target={item.label === "Gitbook" ? "_blank" : "_self"}
+          >
             {item.label}
           </NavItem>
         ))}

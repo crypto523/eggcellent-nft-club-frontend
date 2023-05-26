@@ -15,9 +15,31 @@ export const TeamTitle = styled.div`
   font-weight: 900;
   color: #8459ff;
   margin-bottom: 70px;
+  &.anim {
+    b {
+      animation: anim 2s ease-in-out;
+    }
+  }
+  b {
+    display: inline-block;
+  }
   @media screen and (max-width: 690px) {
     font-size: 30px;
     margin-bottom: 20px;
+  }
+  @keyframes anim {
+    0% {
+      transform: rotate(70deg) scale(0);
+    }
+    50% {
+      transform: rotate(-10deg) scale(1);
+    }
+    75% {
+      transform: rotate(10deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
   }
 `;
 

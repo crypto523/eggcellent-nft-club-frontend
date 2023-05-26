@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   TeamDescription,
   TeamMemberItem,
@@ -9,9 +9,38 @@ import {
 import { teams } from "./data";
 
 export const TeamSection: React.FC = () => {
+  const title1 = "TEAM";
+  const title2 = "PROFILE";
+  const [anim, setAnim] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const handleScroll = () => {
+    const titleElem = document
+      .getElementById("team-title")
+      ?.getBoundingClientRect().top;
+    if (window.innerHeight >= Number(titleElem) && Number(titleElem) >= 0) {
+      setAnim(true);
+    } else {
+      setAnim(false);
+    }
+  };
   return (
     <TeamWrapper id="team">
-      <TeamTitle>TEAM PROFILE</TeamTitle>
+      <TeamTitle id="team-title" className={anim ? "anim" : ""}>
+        {title1.split("").map((item, key) => (
+          <b key={key}>{item}</b>
+        ))}
+        &nbsp;
+        {title2.split("").map((item, key) => (
+          <b key={key}>{item}</b>
+        ))}
+      </TeamTitle>
       <TeamDescription>
         Lörem ipsum tirinar ambitism agnostivision dise, ontoform ett neling.
         Göföd dysvalens.

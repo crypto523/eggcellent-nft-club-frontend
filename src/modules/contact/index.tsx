@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Communities,
   ContactContent,
@@ -8,13 +8,47 @@ import {
 } from "./styles";
 
 export const ContactSection: React.FC = () => {
+  const title1 = "JOIN";
+  const title3 = "THE";
+  const title2 = "COMMUNITY";
+  const [anim, setAnim] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const handleScroll = () => {
+    const titleElem = document
+      .getElementById("contact-title")
+      ?.getBoundingClientRect().top;
+    if (window.innerHeight >= Number(titleElem) && Number(titleElem) >= 0) {
+      setAnim(true);
+    } else {
+      setAnim(false);
+    }
+  };
+
   return (
     <ContactWrapper id="contact">
       <ContactContent>
         <ContactDescription>
-          <h1>
-            JOIN THE <br />
-            <span>COMMUNITY</span>
+          <h1 id="contact-title" className={anim ? "anim" : ""}>
+            {title1.split("").map((item, key) => (
+              <b key={key}>{item}</b>
+            ))}
+            &nbsp;
+            {title3.split("").map((item, key) => (
+              <b key={key}>{item}</b>
+            ))}
+            <br />
+            <span>
+              {title2.split("").map((item, key) => (
+                <b key={key}>{item}</b>
+              ))}
+            </span>
           </h1>
           <p>
             Lörem ipsum tirinar ambitism agnostivision dise, ontoform ett

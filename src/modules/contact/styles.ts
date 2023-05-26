@@ -29,6 +29,28 @@ export const ContactDescription = styled.div`
     span {
       color: #ffdd00;
     }
+    &.anim {
+      b {
+        animation: anim 2s ease-in-out;
+      }
+    }
+    b {
+      display: inline-block;
+    }
+  }
+  @keyframes anim {
+    0% {
+      transform: rotate(70deg) scale(0);
+    }
+    50% {
+      transform: rotate(-10deg) scale(1);
+    }
+    75% {
+      transform: rotate(10deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
   }
   p {
     font-size: 26px;

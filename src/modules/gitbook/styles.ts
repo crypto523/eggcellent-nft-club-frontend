@@ -33,6 +33,28 @@ export const GitbookDescription = styled.div`
     span {
       color: #8459ff;
     }
+    &.anim {
+      b {
+        animation: anim 2s ease-in-out;
+      }
+    }
+    b {
+      display: inline-block;
+    }
+  }
+  @keyframes anim {
+    0% {
+      transform: rotate(70deg) scale(0);
+    }
+    50% {
+      transform: rotate(-10deg) scale(1);
+    }
+    75% {
+      transform: rotate(10deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
   }
   p {
     margin-top: 30px;

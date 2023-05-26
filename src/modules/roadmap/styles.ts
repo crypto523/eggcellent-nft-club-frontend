@@ -12,12 +12,38 @@ export const RoadmapWrapper = styled.div`
     font-weight: 700;
     padding-left: 30px;
     margin-bottom: 50px;
+    &.anim {
+      b {
+        animation: anim 2s ease-in-out;
+      }
+    }
+    b {
+      display: inline-block;
+    }
   }
   h3 {
     padding-left: 30px;
     font-size: 48px;
     font-weight: 700;
     color: #8459ff;
+    b {
+      animation: anim 2s ease-in-out;
+      display: inline-block;
+    }
+  }
+  @keyframes anim {
+    0% {
+      transform: rotate(70deg) scale(0);
+    }
+    50% {
+      transform: rotate(-10deg) scale(1);
+    }
+    75% {
+      transform: rotate(10deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
   }
   @media screen and (max-width: 1024px) {
     h1 {
