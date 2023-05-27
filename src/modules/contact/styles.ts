@@ -73,9 +73,9 @@ export const ContactDescription = styled.div`
       font-size: 20px;
     }
   }
-  @media screen and (max-width: 1240px) {
+  @media screen and (max-width: 768px) {
     h1 {
-      font-size: 46px;
+      font-size: 44px;
     }
     p {
       font-size: 15px;
