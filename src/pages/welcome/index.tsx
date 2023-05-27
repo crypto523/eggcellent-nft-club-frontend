@@ -88,7 +88,7 @@ export const Welcome: React.FC = () => {
           key={item}
           selfpos={chickenPos ? chickenPos[item - 1] : { x: 0, y: 0 }}
         >
-          <img src={`/assets/images/chick${item}.svg`} alt="" />
+          <img src={`/assets/images/chick${item}.png`} alt="" />
         </ChickImgWrapper>
       ))}
       {[1, 2, 3, 4, 5, 6].map((item) => (

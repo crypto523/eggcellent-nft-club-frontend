@@ -25,6 +25,7 @@ export const AppSidebar: React.FC<SidebarProps> = ({ isshow, onClose }) => {
               className={"sidebar"}
               key={key}
               href={item.to}
+              target={item.label === "Gitbook" ? "_blank" : "_self"}
               onClick={onClose}
             >
               {item.label}

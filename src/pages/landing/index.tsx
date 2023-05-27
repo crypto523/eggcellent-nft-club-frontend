@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { LandingPageWrapper } from "./styles";
 import { AppLayout } from "../../layouts/AppLayout";
 import {
@@ -15,30 +15,11 @@ export const Landing: React.FC = () => {
   const title4 = "Chicken";
   const title5 = "Eggs";
   const title6 = "Farming";
-  const [anim, setAnim] = useState(false);
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
-  const handleScroll = () => {
-    const titleElem = document
-      .getElementById("home-title")
-      ?.getBoundingClientRect().top;
-    if (window.innerHeight >= Number(titleElem) && Number(titleElem) >= 0) {
-      setAnim(true);
-    } else {
-      setAnim(false);
-    }
-  };
 
   return (
     <AppLayout>
       <LandingPageWrapper id="home">
-        <h1 id="home-title" className={anim ? "anim" : ""}>
+        <h1 id="home-title">
           {title1.split("").map((item, key) => (
             <b key={key}>{item}</b>
           ))}

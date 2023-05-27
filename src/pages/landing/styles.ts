@@ -44,7 +44,7 @@ export const LandingPageWrapper = styled.div`
     h1 {
       font-size: 35px;
       span {
-        font-size: 30px;
+        font-size: 28px;
       }
     }
   }
