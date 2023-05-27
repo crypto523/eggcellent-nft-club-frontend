@@ -54,7 +54,7 @@ export const RoadMapSection: React.FC = () => {
 
       <ImageWrapper>
         <img src="/assets/images/roadmap.png" className="roadmap" alt="" />
-        <img src="/assets/images/chickens/N1.png" className="chicken" alt="" />
+        <img src="/assets/images/chickens/N9.png" className="chicken" alt="" />
       </ImageWrapper>
     </RoadmapWrapper>
   );
