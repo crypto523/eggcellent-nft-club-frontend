@@ -96,7 +96,9 @@ export const Communities = styled.div`
   margin-top: 30px;
   a {
     text-decoration: none;
-    margin-right: 20px;
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
     img {
       width: 48px;
       height: 48px;

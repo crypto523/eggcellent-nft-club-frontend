@@ -108,18 +108,30 @@ export const FooterWrapper = styled.div`
   display: flex;
   flex-direction: column;
   background-color: #8459ff;
-  text-align: center;
   color: #fff;
   padding: 50px 0;
   font-size: 20px;
   p {
+    justify-content: center;
     margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
   }
   a {
+    white-space: nowrap;
     color: #fff;
     text-decoration: none;
     &:hover {
       text-decoration: underline;
+    }
+    &:last-child {
+      margin-left: 14px;
+    }
+    @media screen and (max-width: 525px) {
+      &:last-child {
+        margin-left: 0;
+      }
     }
   }
 `;
