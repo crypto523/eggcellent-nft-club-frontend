@@ -7,16 +7,18 @@ export const Footer: React.FC = () => {
       <p>Copyright 2022 All Rights Reserved by Eggcellent NFT Club.</p>
       <p>
         <a
-          href="https://www.minetopia.io/privacy"
-          target="_blank"
-          rel="noreferrer"
+          href="#"
+          // href="https://www.minetopia.io/privacy"
+          // target="_blank"
+          // rel="noreferrer"
         >
           Eggcellent NFT Club Privacy
         </a>
         <a
-          href="https://www.minetopia.io/terms-and-conditions"
-          target="_blank"
-          rel="noreferrer"
+          // href="https://www.minetopia.io/terms-and-conditions"
+          href="#"
+          // target="_blank"
+          // rel="noreferrer"
         >
           Eggcellent NFT Club T&C
         </a>
