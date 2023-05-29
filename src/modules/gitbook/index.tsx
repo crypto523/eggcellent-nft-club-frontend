@@ -66,7 +66,13 @@ export const GitBookSection: React.FC = () => {
             initial months. Through this business, we aim to offer
             locally-produced premium quality chicken eggs produced by
             ethically-raised and well-fed Chicken Layers…{" "}
-            <a href="#gitbook">Read More</a>
+            <a
+              href="https://eggcellent.gitbook.io/docs/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Read More
+            </a>
           </p>
           <GitbookButtonGroup>
             <GitbookButton
