@@ -4,7 +4,7 @@ import { FooterWrapper } from "./styles";
 export const Footer: React.FC = () => {
   return (
     <FooterWrapper>
-      <p>Copyright 2022 All Rights Reserved by Eggcellent NFT Club.</p>
+      <p>Copyright &copy; 2022 All Rights Reserved by Eggcellent NFT Club.</p>
       <p>
         <a
           href="#"
