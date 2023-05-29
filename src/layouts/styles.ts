@@ -104,7 +104,25 @@ export const HeaderMobileButton = styled.div`
   }
 `;
 
-export const FooterWrapper = styled.div``;
+export const FooterWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  background-color: #8459ff;
+  text-align: center;
+  color: #fff;
+  padding: 50px 0;
+  font-size: 20px;
+  p {
+    margin-top: 20px;
+  }
+  a {
+    color: #fff;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+`;
 
 export const AppSidebarWrapper = styled.div<{ isshow: string | undefined }>`
   color: #fff;

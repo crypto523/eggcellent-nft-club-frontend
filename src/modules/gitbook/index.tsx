@@ -56,8 +56,17 @@ export const GitBookSection: React.FC = () => {
             </span>
           </h1>
           <p>
-            Lörem ipsum sMF hykaligt athleisure facial recognition vertikal,
-            tillväxtföretag inte computer vison. RFID personalisering.
+            Eggcellent NFT Club is the latest innovation of Minetopia NFT Mining
+            Club. Sabah, Malaysia, has been finalized as the location for this
+            stage 2 project.
+            <br />
+            Taking the increasing demand for quality and nutrient-rich chicken
+            eggs into account, Eggcellent has decided to begin its production
+            with commercial eggs and expand to organic eggs after several
+            initial months. Through this business, we aim to offer
+            locally-produced premium quality chicken eggs produced by
+            ethically-raised and well-fed Chicken Layers…{" "}
+            <a href="#gitbook">Read More</a>
           </p>
           <GitbookButtonGroup>
             <GitbookButton
@@ -80,6 +89,7 @@ export const GitBookSection: React.FC = () => {
           <img src="/assets/images/chickens/N1.png" alt="" />
         </GitbookImg>
       </GitbookContent>
+      <div id="roadmap"></div>
     </GitbookWrapper>
   );
 };

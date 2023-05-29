@@ -27,7 +27,7 @@ export const RoadMapSection: React.FC = () => {
     }
   };
   return (
-    <RoadmapWrapper id="roadmap">
+    <RoadmapWrapper>
       <h1 id="roadmap-title" className={anim ? "anim" : ""}>
         {title1.split("").map((item, key) => (
           <b key={key}>{item}</b>
@@ -56,6 +56,7 @@ export const RoadMapSection: React.FC = () => {
         <img src="/assets/images/roadmap.png" className="roadmap" alt="" />
         <img src="/assets/images/chickens/N9.png" className="chicken" alt="" />
       </ImageWrapper>
+      <div id="team"></div>
     </RoadmapWrapper>
   );
 };

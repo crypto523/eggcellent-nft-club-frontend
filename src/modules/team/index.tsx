@@ -31,7 +31,7 @@ export const TeamSection: React.FC = () => {
     }
   };
   return (
-    <TeamWrapper id="team">
+    <TeamWrapper>
       <TeamTitle id="team-title" className={anim ? "anim" : ""}>
         {title1.split("").map((item, key) => (
           <b key={key}>{item}</b>
