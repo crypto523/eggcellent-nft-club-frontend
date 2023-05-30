@@ -48,7 +48,10 @@ export const Header: React.FC<HeaderProps> = ({ onMenuOpen }) => {
           <img src="/assets/images/metamask.svg" alt="" />
           Mint
         </MintButton>
-        <MintButton bg="#8459FF">
+        <MintButton
+          bg="#8459FF"
+          onClick={() => window.open("https://WithPaper.com")}
+        >
           <img src="/assets/images/paper-icon.svg" alt="" />
           Mint
         </MintButton>

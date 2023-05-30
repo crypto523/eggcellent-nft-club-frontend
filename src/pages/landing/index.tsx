@@ -1,5 +1,4 @@
 import React from "react";
-import { MDBContainer } from "mdb-react-ui-kit";
 import { LandingPageWrapper } from "./styles";
 import { AppLayout } from "../../layouts/AppLayout";
 import {
@@ -7,6 +6,7 @@ import {
   GitBookSection,
   RoadMapSection,
   TeamSection,
+  TextTypingAnimation,
 } from "../../modules";
 
 export const Landing: React.FC = () => {
@@ -17,9 +17,11 @@ export const Landing: React.FC = () => {
           <b>EGGCELLENT NFT CLUB</b>
           <br />
           <span>Chicken Eggs Farming</span>
-          <MDBContainer>
-            <p>Backed by Real-World Poultry Farm in Malaysia</p>
-          </MDBContainer>
+          <TextTypingAnimation
+            className="block"
+            key="line-1"
+            texts={["Backed by Real-World Poultry Farm in Malaysia"]}
+          />
         </h1>
       </LandingPageWrapper>
       <GitBookSection />
