@@ -9,14 +9,38 @@ export const LandingPageWrapper = styled.div`
   h1 {
     text-align: center;
     color: #240d13;
-    &.anim {
-      b {
-        animation: anim 2s ease-in-out;
-      }
-    }
     b {
       font-family: "Anton", sans-serif !important;
       display: inline-block;
+    }
+    p {
+      position: relative;
+      font-weight: bold !important;
+      overflow: hidden;
+      font-size: 20px;
+      margin: auto;
+      line-height: 30px;
+      margin-top: 24px;
+      border-right: 2px solid #000;
+      white-space: nowrap;
+      animation: typewriter 4s steps(44) 1s 1 normal both,
+        blinkTextCursor 500ms infinite;
+    }
+    @keyframes typewriter {
+      from {
+        width: 0;
+      }
+      to {
+        width: 587px;
+      }
+    }
+    @keyframes blinkTextCursor {
+      from {
+        border-right-color: #000;
+      }
+      to {
+        border-right-color: transparent;
+      }
     }
     font-weight: 400;
     font-size: 70px;

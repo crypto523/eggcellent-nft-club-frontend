@@ -1,11 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  TeamDescription,
-  TeamMemberItem,
-  TeamMembers,
-  TeamTitle,
-  TeamWrapper,
-} from "./styles";
+import { TeamMemberItem, TeamMembers, TeamTitle, TeamWrapper } from "./styles";
 import { teams } from "./data";
 
 export const TeamSection: React.FC = () => {
@@ -41,10 +35,7 @@ export const TeamSection: React.FC = () => {
           <b key={key}>{item}</b>
         ))}
       </TeamTitle>
-      <TeamDescription>
-        Lörem ipsum tirinar ambitism agnostivision dise, ontoform ett neling.
-        Göföd dysvalens.
-      </TeamDescription>
+
       <TeamMembers>
         {teams.map((item, key) => (
           <TeamMemberItem key={key}>

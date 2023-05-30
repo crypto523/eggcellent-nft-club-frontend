@@ -27,7 +27,7 @@ export const RoadMapSection: React.FC = () => {
     }
   };
   return (
-    <RoadmapWrapper>
+    <RoadmapWrapper id="roadmap">
       <h1 id="roadmap-title" className={anim ? "anim" : ""}>
         {title1.split("").map((item, key) => (
           <b key={key}>{item}</b>

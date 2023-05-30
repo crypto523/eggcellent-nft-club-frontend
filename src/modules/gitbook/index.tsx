@@ -95,7 +95,6 @@ export const GitBookSection: React.FC = () => {
           <img src="/assets/images/chickens/N1.png" alt="" />
         </GitbookImg>
       </GitbookContent>
-      <div id="roadmap"></div>
     </GitbookWrapper>
   );
 };

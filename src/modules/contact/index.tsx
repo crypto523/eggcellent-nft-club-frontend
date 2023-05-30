@@ -50,11 +50,7 @@ export const ContactSection: React.FC = () => {
               ))}
             </span>
           </h1>
-          <p>
-            Lörem ipsum tirinar ambitism agnostivision dise, ontoform ett
-            neling. Göföd dysvalens. Gamification reasion utan
-            investeringsfrämjande psykofaktisk terration.
-          </p>
+          <p>Join us now and be part of the revolution!</p>
           <Communities>
             <a href="https://opensea.io" target="_blank" rel="noreferrer">
               <img src="/assets/images/opensea.svg" alt="" />

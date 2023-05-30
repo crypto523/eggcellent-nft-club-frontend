@@ -43,16 +43,6 @@ export const TeamTitle = styled.div`
   }
 `;
 
-export const TeamDescription = styled.p`
-  font-size: 26px;
-  color: #000;
-  font-weight: 600;
-  text-align: center;
-  @media screen and (max-width: 690px) {
-    font-size: 20px;
-  }
-`;
-
 export const TeamMembers = styled.div`
   display: flex;
   align-items: flex-start;

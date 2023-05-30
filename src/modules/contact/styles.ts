@@ -1,12 +1,15 @@
 import { styled } from "styled-components";
 
 export const ContactWrapper = styled.div`
-  padding: 70px 0;
+  padding: 117px 0;
   background: url("/assets/images/rect3.png") no-repeat,
     url("/assets/images/rect6.png") no-repeat, #8459ff;
   background-position: 100% calc(100% + 200px), -200px -100px;
   background-size: 400px, 300px;
   position: relative;
+  @media screen and (max-width: 768px) {
+    padding: 75px 0;
+  }
 `;
 
 export const ContactContent = styled.div`
@@ -23,7 +26,7 @@ export const ContactContent = styled.div`
 
 export const ContactDescription = styled.div`
   h1 {
-    font-size: 130px;
+    font-size: 100px;
     font-weight: 700;
     color: #fff;
     span {

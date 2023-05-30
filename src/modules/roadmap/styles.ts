@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
 
 export const RoadmapWrapper = styled.div`
-  padding: 70px 0;
+  padding: 117px 0 70px;
   background-color: #fff8f3;
   & > * {
     width: 90%;
@@ -55,6 +55,7 @@ export const RoadmapWrapper = styled.div`
     }
   }
   @media screen and (max-width: 768px) {
+    padding: 75px 0;
     & > * {
       width: 98%;
       margin: auto;
@@ -65,7 +66,6 @@ export const RoadmapWrapper = styled.div`
     }
   }
   @media screen and (max-width: 640px) {
-    padding: 30px 0;
     h3 {
       font-size: 24px;
     }
