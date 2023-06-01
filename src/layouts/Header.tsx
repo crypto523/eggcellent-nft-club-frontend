@@ -9,12 +9,18 @@ import {
 } from "./styles";
 import { headerData } from "./data";
 import { useNavigate } from "react-router-dom";
+import { useEthContext } from "../context/EthereumContext";
 
+import Web3Modal from "web3modal";
+import WalletConnectProvider from "@walletconnect/ethereum-provider";
+import { providers } from "ethers";
+import { infuraID } from "../constant/constant";
 type HeaderProps = {
   onMenuOpen: () => void;
 };
 
 export const Header: React.FC<HeaderProps> = ({ onMenuOpen }) => {
+  const { currentAcc, setCurrentAcc, setProvider } = useEthContext();
   const navigate = useNavigate();
   const [header, setHeader] = useState(false);
   useEffect(() => {
@@ -28,7 +34,42 @@ export const Header: React.FC<HeaderProps> = ({ onMenuOpen }) => {
     if (window.scrollY > 50) setHeader(true);
     else setHeader(false);
   };
+  const web3Modal = new Web3Modal({
+    network: "mainnet",
+    cacheProvider: true,
+    providerOptions: {
+      walletconnect: {
+        package: WalletConnectProvider,
+        options: {
+          infuraId: infuraID,
+          rpc: {
+            137: "https://rpc-mainnet.maticvigil.com",
+            80001: "https://rpc-mumbai.maticvigil.com",
+          },
+        },
+      },
+    },
+  });
+  function accountsChanged(accounts: string[]) {
+    if (accounts[0]) {
+      setCurrentAcc(accounts[0]);
+    } else {
+      setCurrentAcc("");
+      setProvider(null);
+    }
+  }
+  async function connect() {
+    try {
+      const web3Provider = await web3Modal.connect();
 
+      web3Provider.on("accountsChanged", accountsChanged);
+
+      const accounts = (await web3Provider.enable()) as string[];
+      setCurrentAcc(accounts[0]);
+      const provider = new providers.Web3Provider(web3Provider);
+      setProvider(provider);
+    } catch (error) {}
+  }
   return (
     <HeaderWrapper className={header ? "header" : ""}>
       <HeaderLogo onClick={() => navigate("/")}>
@@ -44,9 +85,11 @@ export const Header: React.FC<HeaderProps> = ({ onMenuOpen }) => {
             {item.label}
           </NavItem>
         ))}
-        <MintButton bg="#0098E5">
+        <MintButton bg="#0098E5" onClick={() => connect()}>
           <img src="/assets/images/metamask.svg" alt="" />
-          Mint
+          {currentAcc
+            ? `${currentAcc.substring(0, 2)}...${currentAcc.substring(40)}`
+            : "Mint"}
         </MintButton>
         <MintButton
           bg="#8459FF"

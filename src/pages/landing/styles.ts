@@ -2,6 +2,10 @@ import styled from "styled-components";
 
 export const LandingPageWrapper = styled.div`
   padding-top: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
   background: url("/assets/images/Eggcellent.png") no-repeat;
   background-size: cover;
   background-position: top center;
@@ -73,3 +77,82 @@ export const LandingPageWrapper = styled.div`
     }
   }
 `;
+export const MintFrom = styled.div`
+  margin-top: 20px;
+  max-width: 500px;
+  padding: 10px;
+  border: 1px solid #8459ff;
+  background-color: #ffffff80;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--boxWhite);
+  border-radius: 15px;
+  @media screen and (max-width: 550px) {
+    flex-direction: column;
+    width: 95%;
+    max-width: 320px;
+  }
+  
+`
+export const MintContent = styled.div`
+  img{
+    width: 100%;
+    border-radius: 20px;
+    @media screen and (max-width: 550px) {
+      margin-bottom: 20px;
+    }
+  }
+  span{
+    font-size: 30px;
+    font-weight: bold;
+  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
+export const MintContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    span{
+      font-size: 20px;
+      margin-top: 5px;
+      display: flex;
+      div{
+        font-weight: 900;
+        cursor: pointer;
+      }
+    }
+    padding: 0px 10px 0 10px;
+    a{
+      margin: 15px 0 0 0;
+    }
+`
+export const MintForm = styled.div`
+  display: flex;
+  margin: 0 0 10px 0;
+
+
+
+`
+export const MintInput = styled.input`
+  font-size: 25px;
+  padding-left: 10px;
+  width: 150px;
+  font-weight: bold;
+  outline: none;
+  height: 60px;
+  border-radius: 10px 0 0 10px;
+  border: none;
+`
+export const CountBtn = styled.div`
+  width: 50px;
+  height: 50%;
+  font-size: 22px;
+  cursor: pointer;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`

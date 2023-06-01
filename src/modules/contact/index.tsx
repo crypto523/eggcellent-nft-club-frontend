@@ -6,6 +6,7 @@ import {
   ContactImg,
   ContactWrapper,
 } from "./styles";
+import { Footer } from "../../layouts/Footer";
 
 export const ContactSection: React.FC = () => {
   const title1 = "JOIN";
@@ -82,6 +83,7 @@ export const ContactSection: React.FC = () => {
           <img src="/assets/images/chickens/N12.png" alt="" />
         </ContactImg>
       </ContactContent>
+      <Footer />
     </ContactWrapper>
   );
 };

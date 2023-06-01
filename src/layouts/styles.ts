@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
-export const AppLayoutWrapper = styled.div``;
+export const AppLayoutWrapper = styled.div`
+position: relative;
+`;
 
 export const HeaderWrapper = styled.div`
   position: fixed;
@@ -107,7 +109,6 @@ export const HeaderMobileButton = styled.div`
 export const FooterWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: #8459ff;
   color: #fff;
   padding: 50px 0;
   font-size: 20px;

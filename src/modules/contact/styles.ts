@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
 
 export const ContactWrapper = styled.div`
-  padding: 117px 0;
+  padding: 117px 0 0;
   background: url("/assets/images/rect3.png") no-repeat,
     url("/assets/images/rect6.png") no-repeat, #8459ff;
   background-position: 100% calc(100% + 200px), -200px -100px;

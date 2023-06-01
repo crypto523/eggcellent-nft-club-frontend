@@ -120,6 +120,7 @@ export const GitbookButtonGroup = styled.div`
 
 export const GitbookButton = styled.a`
   height: 68px;
+  cursor: pointer;
   text-decoration: none;
   border-radius: 60px;
   width: 210px;
