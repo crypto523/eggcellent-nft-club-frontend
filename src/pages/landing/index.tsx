@@ -145,7 +145,10 @@ export const Landing: React.FC = () => {
                 {sale}/{total}
               </span>
 
-              <GitbookButton className="check" onClick={() => connect()}>
+              <GitbookButton
+                className="check"
+                onClick={() => !loading && connect()}
+              >
                 {currentAcc ? (
                   loading ? (
                     <ReactLoading
