@@ -10,11 +10,13 @@ import {
 import { headerData } from "./data";
 import { useNavigate } from "react-router-dom";
 import { MintButton } from "../modules/mint";
+import { useEthContext } from "../context/EthereumContext";
 type HeaderProps = {
   onMenuOpen: () => void;
 };
 
 export const Header: React.FC<HeaderProps> = ({ onMenuOpen }) => {
+  const { connect } = useEthContext();
   const navigate = useNavigate();
   const [header, setHeader] = useState(false);
   useEffect(() => {
@@ -45,7 +47,7 @@ export const Header: React.FC<HeaderProps> = ({ onMenuOpen }) => {
           </NavItem>
         ))}
         <div>
-          <MintBtn bg="#8459FF">
+          <MintBtn bg="#0098e4" onClick={connect}>
             <MintButton />
           </MintBtn>
         </div>

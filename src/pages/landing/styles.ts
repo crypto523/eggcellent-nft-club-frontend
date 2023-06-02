@@ -96,6 +96,17 @@ export const MintFrom = styled.div`
   }
   
 `
+export const SwitchBtn = styled.div`
+margin-top: 5px;
+  label{
+    span{
+      margin: 0 !important;
+    }
+  }
+  input{
+    display: none;
+  }
+`
 export const MintContent = styled.div`
   img{
     width: 100%;
@@ -139,19 +150,19 @@ export const MintForm = styled.div`
 
 `
 export const MintInput = styled.input`
-  font-size: 25px;
+  font-size: 20px;
   padding-left: 10px;
-  width: 60px;
+  width: 80px;
   font-weight: bold;
   outline: none;
-  height: 60px;
+  height: 50px;
   border-radius: 10px 0 0 10px;
   border: none;
 `
 export const CountBtn = styled.div`
   width: 50px;
   height: 50%;
-  font-size: 22px;
+  font-size: 18px;
   cursor: pointer;
   background-color: white;
   display: flex;

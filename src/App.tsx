@@ -29,18 +29,20 @@ const App: React.FC = () => {
   });
 
   function accountsChanged(accounts: string[]) {
-    if (accounts) {
-      setCurrentAcc(accounts[0]);
-    } else {
-      setCurrentAcc("");
+    try {
+      if (accounts) {
+        setCurrentAcc(accounts[0]);
+      } else {
+        setCurrentAcc("");
+      }
+    } catch (error) {
+      console.log(error);
     }
   }
 
   function reset() {
-    console.log("reset");
-
     setCurrentAcc("");
-    setProvider(undefined);
+    setProvider(null);
     web3Modal.clearCachedProvider();
   }
 

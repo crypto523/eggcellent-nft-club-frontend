@@ -7,6 +7,7 @@ import {
   MintForm,
   MintFrom,
   MintInput,
+  SwitchBtn,
 } from "./styles";
 
 import { AppLayout } from "../../layouts/AppLayout";
@@ -24,6 +25,8 @@ import { Contract } from "ethers";
 import {
   EggHub_Abi,
   EggHub_Address,
+  USDC_Abi,
+  USDC_Address,
   USDT_Abi,
   USDT_Address,
 } from "../../contract/contract";
@@ -38,6 +41,7 @@ export const Landing: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [total, setTotal] = useState(0);
   const [sale, setSale] = useState(0);
+  const [toggle, setToggle] = useState(false);
   const onIncrease = () => {
     if (num < 100) setNum(num + 1);
   };
@@ -63,45 +67,69 @@ export const Landing: React.FC = () => {
   }, [provider]);
   useEffect(() => {
     if (provider) {
-      try {
-        const interval = setInterval(async () => {
-          const contract = new Contract(
-            EggHub_Address,
-            EggHub_Abi,
-            provider.getSigner()
-          );
+      const contract = new Contract(
+        EggHub_Address,
+        EggHub_Abi,
+        provider.getSigner()
+      );
+      const interval = setInterval(async () => {
+        try {
           const res = await contract.totalSupply();
           setSale(res.toString());
-        }, 2000);
+        } catch (error) {}
+      }, 2000);
 
-        return () => clearInterval(interval);
-      } catch (error) {}
+      return () => clearInterval(interval);
     }
   }, [provider]);
 
   async function connect() {
     if (num > 0) {
       setLoading(true);
-      try {
-        const contract = new Contract(
-          USDT_Address,
-          USDT_Abi,
-          provider.getSigner()
-        );
-        const res = await contract.approve(EggHub_Address, 250 * Number(num));
-        await res.wait();
-        const egg_contract = new Contract(
-          EggHub_Address,
-          EggHub_Abi,
-          provider.getSigner()
-        );
-        const tx = await egg_contract.mintUSDT(num);
-        await tx.wait();
-        await toast.success("Successfully Minted.", { theme: "dark" });
-        await reset();
-        await setLoading(false);
-      } catch (error) {
-        await setLoading(false);
+      if (toggle) {
+        try {
+          const contract = new Contract(
+            USDC_Address,
+            USDC_Abi,
+            provider.getSigner()
+          );
+          const res = await contract.approve(EggHub_Address, 250 * Number(num));
+          await res.wait();
+          const egg_contract = new Contract(
+            EggHub_Address,
+            EggHub_Abi,
+            provider.getSigner()
+          );
+          const tx = await egg_contract.mintUSDC(currentAcc, num);
+          await tx.wait();
+          await toast.success("Successfully Minted.", { theme: "dark" });
+          await reset();
+          await setLoading(false);
+        } catch (error) {
+          await setLoading(false);
+        }
+      } else {
+        try {
+          const contract = new Contract(
+            USDT_Address,
+            USDT_Abi,
+            provider.getSigner()
+          );
+          const res = await contract.approve(EggHub_Address, 250 * Number(num));
+          await res.wait();
+          const egg_contract = new Contract(
+            EggHub_Address,
+            EggHub_Abi,
+            provider.getSigner()
+          );
+          const tx = await egg_contract.mintUSDT(num);
+          await tx.wait();
+          await toast.success("Successfully Minted.", { theme: "dark" });
+          await reset();
+          await setLoading(false);
+        } catch (error) {
+          await setLoading(false);
+        }
       }
     } else {
       toast.error("Enter Count", { theme: "dark" });
@@ -149,22 +177,37 @@ export const Landing: React.FC = () => {
               <span>
                 {sale}/{total}
               </span>
-
+              <SwitchBtn>
+                <input
+                  checked={toggle}
+                  onChange={() => setToggle(!toggle)}
+                  type="checkbox"
+                  id={"react-switch-new"}
+                  className="react-switch-checkbox"
+                />
+                <label
+                  style={{ background: toggle ? "#0098e4" : "#8459FF" }}
+                  className="react-switch-label"
+                  htmlFor={"react-switch-new"}
+                >
+                  <span className={"react-switch-button"} />
+                </label>
+              </SwitchBtn>
               <GitbookButton
                 className="check"
                 onClick={() => !loading && connect()}
-                style={{ borderRadius: "15px", width: "100px" }}
+                style={{ borderRadius: "15px", width: "130px", height: "40px" }}
               >
                 {currentAcc ? (
                   loading ? (
                     <ReactLoading
                       type={"spokes"}
-                      color={"#8459ff"}
+                      color={"#0098e4"}
                       height={"30px"}
                       width={"30px"}
                     />
                   ) : (
-                    `Mint`
+                    `${toggle ? "USDC" : "USDT"} Mint`
                   )
                 ) : (
                   "Connect Wallet"
