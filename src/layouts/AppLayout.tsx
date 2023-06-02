@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { AppContentWrapper, AppLayoutWrapper } from "./styles";
 import { Header } from "./Header";
 import { AppSidebar } from "./AppSidebar";
-import { Footer } from "./Footer";
 
 export const AppLayout: React.FC<React.HTMLAttributes<HTMLElement>> = ({
   children,
@@ -18,7 +17,6 @@ export const AppLayout: React.FC<React.HTMLAttributes<HTMLElement>> = ({
       <Header onMenuOpen={() => setIsSidebar(true)} />
       <AppSidebar isshow={isSidebar} onClose={() => setIsSidebar(false)} />
       <AppContentWrapper>{children}</AppContentWrapper>
-      <Footer />
     </AppLayoutWrapper>
   );
 };

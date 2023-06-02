@@ -7,7 +7,7 @@ export const Footer: React.FC = () => {
       <p>Copyright &copy; 2022 All Rights Reserved by Eggcellent NFT Club.</p>
       <p>
         <a
-          href="#"
+          href="/home"
           // href="https://www.minetopia.io/privacy"
           // target="_blank"
           // rel="noreferrer"
@@ -16,7 +16,7 @@ export const Footer: React.FC = () => {
         </a>
         <a
           // href="https://www.minetopia.io/terms-and-conditions"
-          href="#"
+          href="/home"
           // target="_blank"
           // rel="noreferrer"
         >
