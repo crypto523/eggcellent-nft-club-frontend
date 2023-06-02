@@ -56,7 +56,9 @@ export const AppSidebar: React.FC<SidebarProps> = ({ isshow, onClose }) => {
       setCurrentAcc(accounts[0]);
       const provider = new providers.Web3Provider(web3Provider);
       setProvider(provider);
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
   }
   return (
     <>
@@ -77,7 +79,7 @@ export const AppSidebar: React.FC<SidebarProps> = ({ isshow, onClose }) => {
           <NavMint onClick={() => connect()}>
             <img src="/assets/images/metamask.svg" alt="" />
             {currentAcc
-              ? `${currentAcc.substring(0, 2)}...${currentAcc.substring(40)}`
+              ? `${currentAcc.substring(0, 2)}${currentAcc.substring(38)}`
               : "Mint"}
           </NavMint>
           <NavMint onClick={() => window.open("https://WithPaper.com")}>

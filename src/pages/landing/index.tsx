@@ -48,32 +48,37 @@ export const Landing: React.FC = () => {
   useEffect(() => {
     reset();
     if (provider) {
-      (async () => {
-        const contract = new Contract(
-          EggHub_Address,
-          EggHub_Abi,
-          provider.getSigner()
-        );
-        const res = await contract.getMaxSupply();
-        setTotal(res.toString());
-      })();
+      try {
+        (async () => {
+          const contract = new Contract(
+            EggHub_Address,
+            EggHub_Abi,
+            provider.getSigner()
+          );
+          const res = await contract.getMaxSupply();
+          setTotal(res.toString());
+        })();
+      } catch (error) {}
     }
   }, [provider]);
   useEffect(() => {
     if (provider) {
-      const interval = setInterval(async () => {
-        const contract = new Contract(
-          EggHub_Address,
-          EggHub_Abi,
-          provider.getSigner()
-        );
-        const res = await contract.totalSupply();
-        setSale(res.toString());
-      }, 2000);
+      try {
+        const interval = setInterval(async () => {
+          const contract = new Contract(
+            EggHub_Address,
+            EggHub_Abi,
+            provider.getSigner()
+          );
+          const res = await contract.totalSupply();
+          setSale(res.toString());
+        }, 2000);
 
-      return () => clearInterval(interval);
+        return () => clearInterval(interval);
+      } catch (error) {}
     }
   }, [provider]);
+
   async function connect() {
     if (num > 0) {
       setLoading(true);
@@ -148,6 +153,7 @@ export const Landing: React.FC = () => {
               <GitbookButton
                 className="check"
                 onClick={() => !loading && connect()}
+                style={{ borderRadius: "15px", width: "100px" }}
               >
                 {currentAcc ? (
                   loading ? (

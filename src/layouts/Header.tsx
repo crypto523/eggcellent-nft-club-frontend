@@ -68,7 +68,9 @@ export const Header: React.FC<HeaderProps> = ({ onMenuOpen }) => {
       setCurrentAcc(accounts[0]);
       const provider = new providers.Web3Provider(web3Provider);
       setProvider(provider);
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
   }
   return (
     <HeaderWrapper className={header ? "header" : ""}>
@@ -88,7 +90,7 @@ export const Header: React.FC<HeaderProps> = ({ onMenuOpen }) => {
         <MintButton bg="#0098E5" onClick={() => connect()}>
           <img src="/assets/images/metamask.svg" alt="" />
           {currentAcc
-            ? `${currentAcc.substring(0, 2)}...${currentAcc.substring(40)}`
+            ? `${currentAcc.substring(0, 2)}${currentAcc.substring(38)}`
             : "Mint"}
         </MintButton>
         <MintButton

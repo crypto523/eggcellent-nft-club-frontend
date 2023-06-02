@@ -81,7 +81,8 @@ export const MintFrom = styled.div`
   margin-top: 20px;
   max-width: 500px;
   padding: 10px;
-  border: 1px solid #8459ff;
+  border: 1px solid #00000050;
+  
   background-color: #ffffff80;
   display: flex;
   justify-content: space-between;
@@ -98,6 +99,7 @@ export const MintFrom = styled.div`
 export const MintContent = styled.div`
   img{
     width: 100%;
+    max-width: 200px;
     border-radius: 20px;
     @media screen and (max-width: 550px) {
       margin-bottom: 20px;
@@ -139,7 +141,7 @@ export const MintForm = styled.div`
 export const MintInput = styled.input`
   font-size: 25px;
   padding-left: 10px;
-  width: 150px;
+  width: 60px;
   font-weight: bold;
   outline: none;
   height: 60px;
