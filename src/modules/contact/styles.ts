@@ -4,7 +4,7 @@ export const ContactWrapper = styled.div`
   padding: 117px 0 0;
   background: url("/assets/images/rect3.png") no-repeat,
     url("/assets/images/rect6.png") no-repeat, #8459ff;
-  background-position: 100% calc(100% + 200px), -200px -100px;
+  background-position: 100% 100%, -200px -100px;
   background-size: 400px, 300px;
   position: relative;
   @media screen and (max-width: 768px) {
