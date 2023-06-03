@@ -82,7 +82,7 @@ export const MintFrom = styled.div`
   max-width: 500px;
   padding: 10px;
   border: 1px solid #00000050;
-  
+
   background-color: #ffffff80;
   display: flex;
   justify-content: space-between;
@@ -94,21 +94,20 @@ export const MintFrom = styled.div`
     width: 95%;
     max-width: 320px;
   }
-  
-`
+`;
 export const SwitchBtn = styled.div`
-margin-top: 5px;
-  label{
-    span{
+  margin-top: 5px;
+  label {
+    span {
       margin: 0 !important;
     }
   }
-  input{
+  input {
     display: none;
   }
-`
+`;
 export const MintContent = styled.div`
-  img{
+  img {
     width: 100%;
     max-width: 200px;
     border-radius: 20px;
@@ -116,51 +115,47 @@ export const MintContent = styled.div`
       margin-bottom: 20px;
     }
   }
-  span{
+  span {
     font-size: 30px;
     font-weight: bold;
   }
   display: flex;
   flex-direction: column;
   align-items: center;
-`
+`;
 export const MintContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  span {
+    font-size: 20px;
+    margin-top: 5px;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    span{
-      font-size: 20px;
-      margin-top: 5px;
-      display: flex;
-      div{
-        font-weight: 900;
-        cursor: pointer;
-      }
+    div {
+      font-weight: 900;
+      cursor: pointer;
     }
-    padding: 0px 10px 0 10px;
-    a{
-      margin: 15px 0 0 0;
-    }
-`
+  }
+  padding: 0px 10px 0 10px;
+  a {
+    margin: 15px 0 0 0;
+  }
+`;
 export const MintForm = styled.div`
   display: flex;
-  margin: 0 0 10px 0;
-
-
-
-`
+`;
 export const MintInput = styled.input`
   font-size: 20px;
   padding-left: 10px;
   width: 80px;
   font-weight: bold;
   outline: none;
-  height: 50px;
+  height: 60px;
   border-radius: 10px 0 0 10px;
   border: none;
-`
+`;
 export const CountBtn = styled.div`
-  width: 50px;
+  width: 40px;
   height: 50%;
   font-size: 18px;
   cursor: pointer;
@@ -168,4 +163,4 @@ export const CountBtn = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-`
+`;
