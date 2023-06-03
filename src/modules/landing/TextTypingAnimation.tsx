@@ -37,10 +37,10 @@ export const TextTypingAnimation: React.FC<Props> = ({ texts, className }) => {
           ) {
             // if the current text is displayed fully OR on deletion process,
             // then decrease sub-string index of current text to start deletion process
-            setIsDelete(true);
-            setCharIndex((prevSubIndex) =>
-              prevSubIndex !== -1 ? prevSubIndex - 1 : 0
-            );
+            // setIsDelete(true);
+            // setCharIndex((prevSubIndex) =>
+            //   prevSubIndex !== -1 ? prevSubIndex - 1 : 0
+            // );
           } else if (
             !isDelete &&
             displayedTextRef.current !== texts[textIndex]
