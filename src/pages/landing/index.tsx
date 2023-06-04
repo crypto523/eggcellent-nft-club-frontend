@@ -166,7 +166,7 @@ export const Landing: React.FC = () => {
           <TextTypingAnimation
             className="block"
             key="line-1"
-            texts={["Backed by Real-World Poultry Farm in Malaysia"]}
+            texts={["Backed by Real-World Poultry Farm in Malaysiaa"]}
           />
         </h1>
         {currentAcc && (
