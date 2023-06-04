@@ -53,12 +53,12 @@ export const Landing: React.FC = () => {
     reset();
     if (provider) {
       try {
+        const contract = new Contract(
+          EggHub_Address,
+          EggHub_Abi,
+          provider.getSigner()
+        );
         (async () => {
-          const contract = new Contract(
-            EggHub_Address,
-            EggHub_Abi,
-            provider.getSigner()
-          );
           const res = await contract.getMaxSupply();
           setTotal(res.toString());
         })();
@@ -86,6 +86,7 @@ export const Landing: React.FC = () => {
   async function connect() {
     if (num > 0) {
       setLoading(true);
+
       if (toggle) {
         try {
           const contract = new Contract(
@@ -93,18 +94,26 @@ export const Landing: React.FC = () => {
             USDC_Abi,
             provider.getSigner()
           );
-          const res = await contract.approve(EggHub_Address, 250 * Number(num));
-          await res.wait();
-          const egg_contract = new Contract(
-            EggHub_Address,
-            EggHub_Abi,
-            provider.getSigner()
-          );
-          const tx = await egg_contract.mintUSDC(currentAcc, num);
-          await tx.wait();
-          await toast.success("Successfully Minted.", { theme: "dark" });
-          await reset();
-          await setLoading(false);
+          const balance = await contract.balanceOf(currentAcc);
+          if (Number(balance.toString()) / 10 ** 6 > 0) {
+            const res = await contract.approve(
+              EggHub_Address,
+              250 * Number(num)
+            );
+            await res.wait();
+            const egg_contract = new Contract(
+              EggHub_Address,
+              EggHub_Abi,
+              provider.getSigner()
+            );
+            const tx = await egg_contract.mintUSDC(currentAcc, num);
+            await tx.wait();
+            await toast.success("Successfully Minted.", { theme: "dark" });
+            await reset();
+            await setLoading(false);
+          } else {
+            toast.error("Insufficient USDC Balance.", { theme: "dark" });
+          }
         } catch (error) {
           await setLoading(false);
         }
@@ -115,18 +124,27 @@ export const Landing: React.FC = () => {
             USDT_Abi,
             provider.getSigner()
           );
-          const res = await contract.approve(EggHub_Address, 250 * Number(num));
-          await res.wait();
-          const egg_contract = new Contract(
-            EggHub_Address,
-            EggHub_Abi,
-            provider.getSigner()
-          );
-          const tx = await egg_contract.mintUSDT(num);
-          await tx.wait();
-          await toast.success("Successfully Minted.", { theme: "dark" });
-          await reset();
-          await setLoading(false);
+          const balance = await contract.balanceOf(currentAcc);
+
+          if (Number(balance.toString()) / 10 ** 6 > 0) {
+            const res = await contract.approve(
+              EggHub_Address,
+              250 * Number(num)
+            );
+            await res.wait();
+            const egg_contract = new Contract(
+              EggHub_Address,
+              EggHub_Abi,
+              provider.getSigner()
+            );
+            const tx = await egg_contract.mintUSDT(num);
+            await tx.wait();
+            await toast.success("Successfully Minted.", { theme: "dark" });
+            await reset();
+            await setLoading(false);
+          } else {
+            toast.error("Insufficient USDT Balance.", { theme: "dark" });
+          }
         } catch (error) {
           await setLoading(false);
         }
@@ -148,7 +166,7 @@ export const Landing: React.FC = () => {
           <TextTypingAnimation
             className="block"
             key="line-1"
-            texts={["Backed by Real-World Poultry Farm in Malaysiaa"]}
+            texts={["Backed by Real-World Poultry Farm in Malaysia"]}
           />
         </h1>
         {currentAcc && (
