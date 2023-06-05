@@ -9,12 +9,14 @@ import {
 } from "./styles";
 import { headerData } from "./data";
 import { MintButton } from "../modules/mint";
+import { useEthContext } from "../context/EthereumContext";
 type SidebarProps = {
   isshow: boolean;
   onClose: () => void;
 };
 
 export const AppSidebar: React.FC<SidebarProps> = ({ isshow, onClose }) => {
+  const { connect } = useEthContext();
   return (
     <>
       <AppSidebarWrapper isshow={isshow ? "true" : undefined}>
@@ -32,7 +34,14 @@ export const AppSidebar: React.FC<SidebarProps> = ({ isshow, onClose }) => {
             </NavItem>
           ))}
           <div style={{ marginTop: "40px" }}>
-            <MintButton />
+            <div
+              onClick={() => {
+                connect();
+                onClose();
+              }}
+            >
+              <MintButton />
+            </div>
           </div>
           <NavMint onClick={() => window.open("https://WithPaper.com")}>
             <img src="/assets/images/paper-icon.svg" alt="" />
