@@ -8,6 +8,8 @@ import {
   MintFrom,
   MintInput,
   SwitchBtn,
+  CommingSoonWrapper,
+  Animbar,
 } from "./styles";
 
 import { AppLayout } from "../../layouts/AppLayout";
@@ -169,6 +171,10 @@ export const Landing: React.FC = () => {
             texts={["Backed by Real-World Poultry Farm in Malaysia "]}
           />
         </h1>
+        <CommingSoonWrapper>
+          <span>Coming Soon</span>
+          <Animbar />
+        </CommingSoonWrapper>
         {currentAcc && (
           <MintFrom>
             <MintContent>

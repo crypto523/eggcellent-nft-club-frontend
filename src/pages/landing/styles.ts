@@ -164,3 +164,63 @@ export const CountBtn = styled.div`
   align-items: center;
   justify-content: center;
 `;
+
+export const CommingSoonWrapper = styled.div`
+  border: 5px solid #240d13;
+  text-transform: uppercase;
+  border-radius: 100px;
+  height: 50px;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+  position: relative;
+  margin-top: 20px;
+  span {
+    position: relative;
+    z-index: 1;
+    font-weight: 900;
+    font-size: 20px !important;
+    line-height: 30px;
+    /* color: #fff; */
+  }
+`;
+
+export const Animbar = styled.div`
+  position: absolute;
+  top: 3px;
+  bottom: 3px;
+  left: 3px;
+  border-radius: 100px;
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% auto;
+
+  animation: gradient 10s ease infinite;
+  margin: auto;
+  opacity: 0.8;
+  @keyframes gradient {
+    0% {
+      right: calc(100% - 80px);
+      left: 3px;
+      background-position: 0% 50%;
+    }
+    25% {
+      right: 3px;
+      left: 3px;
+    }
+    50% {
+      right: 3px;
+      left: calc(100% - 80px);
+      background-position: 100% 50%;
+    }
+    75% {
+      right: 3px;
+      left: 3px;
+    }
+    100% {
+      right: calc(100% - 80px);
+      background-position: 0% 50%;
+    }
+  }
+`;
