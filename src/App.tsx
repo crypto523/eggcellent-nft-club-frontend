@@ -77,7 +77,9 @@ const App: React.FC = () => {
         });
       }
     } catch (error) {
-      console.log(error);
+      toast.error("Transaction Error", {
+        theme: "dark",
+      });
     }
   }
   return (

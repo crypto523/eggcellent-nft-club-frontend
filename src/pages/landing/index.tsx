@@ -90,7 +90,7 @@ export const Landing: React.FC = () => {
 
   async function connect() {
     if (num > 0) {
-      if (Number(sale) > Number(total)) {
+      if (Number(sale) >= Number(total)) {
         toast.error("You can't mint anymore.", { theme: "dark" });
       } else {
         setLoading(true);
@@ -129,7 +129,10 @@ export const Landing: React.FC = () => {
               toast.error("Insufficient USDC Balance.", { theme: "dark" });
               await setLoading(false);
             }
-          } catch (error) {
+          } catch (error: any) {
+            if (error.data.message.includes("Exceeds max supply!")) {
+              toast.error("Exceeds max supply!", { theme: "dark" });
+            }
             await setLoading(false);
           }
         } else {
@@ -168,7 +171,11 @@ export const Landing: React.FC = () => {
               toast.error("Insufficient USDT Balance.", { theme: "dark" });
               await setLoading(false);
             }
-          } catch (error) {
+          } catch (error: any) {
+            if (error.data.message.includes("Exceeds max supply!")) {
+              toast.error("Exceeds max supply!", { theme: "dark" });
+            }
+            await setLoading(false);
             await setLoading(false);
           }
         }
