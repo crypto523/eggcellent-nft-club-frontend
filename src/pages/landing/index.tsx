@@ -256,7 +256,7 @@ export const Landing: React.FC = () => {
               {!status ? (
                 <GitbookButton
                   className="check"
-                  onClick={() => !loading && status && connect()}
+                  onClick={() => !loading && !status && connect()}
                   style={{
                     borderRadius: "15px",
                     width: "130px",
