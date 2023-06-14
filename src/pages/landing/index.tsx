@@ -90,7 +90,7 @@ export const Landing: React.FC = () => {
 
   async function connect() {
     if (num > 0) {
-      if (sale > total) {
+      if (Number(sale) > Number(total)) {
         toast.error("You can't mint anymore.", { theme: "dark" });
       } else {
         setLoading(true);
