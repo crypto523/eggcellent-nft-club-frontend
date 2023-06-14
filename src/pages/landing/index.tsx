@@ -253,7 +253,7 @@ export const Landing: React.FC = () => {
                 </label>
               </SwitchBtn>
 
-              {status ? (
+              {!status ? (
                 <GitbookButton
                   className="check"
                   onClick={() => !loading && status && connect()}
