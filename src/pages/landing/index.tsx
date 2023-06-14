@@ -130,8 +130,14 @@ export const Landing: React.FC = () => {
               await setLoading(false);
             }
           } catch (error: any) {
-            if (error.data.message.includes("Exceeds max supply!")) {
-              toast.error("Exceeds max supply!", { theme: "dark" });
+            if(error.data != undefined) {
+              if (error.data.message.includes("Exceeds max supply!")) {
+                toast.error("Exceeds max supply!", { theme: "dark" });
+              }else{
+                toast.error("Transaction error!", { theme: "dark" });
+              }              
+            }else{
+              toast.error("Transaction rejected!", { theme: "dark" });
             }
             await setLoading(false);
           }
@@ -172,10 +178,15 @@ export const Landing: React.FC = () => {
               await setLoading(false);
             }
           } catch (error: any) {
-            if (error.data.message.includes("Exceeds max supply!")) {
-              toast.error("Exceeds max supply!", { theme: "dark" });
+            if(error.data != undefined) {
+              if (error.data.message.includes("Exceeds max supply!")) {
+                toast.error("Exceeds max supply!", { theme: "dark" });
+              }else{
+                toast.error("Transaction error!", { theme: "dark" });
+              }              
+            }else{
+              toast.error("Transaction rejected!", { theme: "dark" });
             }
-            await setLoading(false);
             await setLoading(false);
           }
         }
