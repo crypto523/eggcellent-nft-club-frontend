@@ -44,6 +44,7 @@ export const Landing: React.FC = () => {
   const [total, setTotal] = useState(0);
   const [sale, setSale] = useState(0);
   const [toggle, setToggle] = useState(false);
+  const [status, setStatus] = useState(false);
   const onIncrease = () => {
     if (num < 100) setNum(num + 1);
   };
@@ -62,6 +63,8 @@ export const Landing: React.FC = () => {
         );
         (async () => {
           const res = await contract.getMaxSupply();
+          const status = await contract.paused();
+          setStatus(status);
           setTotal(res.toString());
         })();
       } catch (error) {}
@@ -87,68 +90,100 @@ export const Landing: React.FC = () => {
 
   async function connect() {
     if (num > 0) {
-      setLoading(true);
-
-      if (toggle) {
-        try {
-          const contract = new Contract(
-            USDC_Address,
-            USDC_Abi,
-            provider.getSigner()
-          );
-          const balance = await contract.balanceOf(currentAcc);
-          if (Number(balance.toString()) / 10 ** 6 > 0) {
-            const res = await contract.approve(
-              EggHub_Address,
-              250 * Number(num)
-            );
-            await res.wait();
-            const egg_contract = new Contract(
-              EggHub_Address,
-              EggHub_Abi,
-              provider.getSigner()
-            );
-            const tx = await egg_contract.mintUSDC(currentAcc, num);
-            await tx.wait();
-            await toast.success("Successfully Minted.", { theme: "dark" });
-            await reset();
-            await setLoading(false);
-          } else {
-            toast.error("Insufficient USDC Balance.", { theme: "dark" });
-          }
-        } catch (error) {
-          await setLoading(false);
-        }
+      if (sale > total) {
+        toast.error("You can't mint anymore.", { theme: "dark" });
       } else {
-        try {
-          const contract = new Contract(
-            USDT_Address,
-            USDT_Abi,
-            provider.getSigner()
-          );
-          const balance = await contract.balanceOf(currentAcc);
+        setLoading(true);
 
-          if (Number(balance.toString()) / 10 ** 6 > 0) {
-            const res = await contract.approve(
-              EggHub_Address,
-              250 * Number(num)
-            );
-            await res.wait();
-            const egg_contract = new Contract(
-              EggHub_Address,
-              EggHub_Abi,
+        if (toggle) {
+          try {
+            const contract = new Contract(
+              USDC_Address,
+              USDC_Abi,
               provider.getSigner()
             );
-            const tx = await egg_contract.mintUSDT(num);
-            await tx.wait();
-            await toast.success("Successfully Minted.", { theme: "dark" });
-            await reset();
+            const balance = await contract.balanceOf(currentAcc);
+            if (Number(balance.toString()) / 10 ** 6 > 0) {
+              let allowance = await contract.allowance(
+                currentAcc,
+                EggHub_Address
+              );
+
+              const res = await contract.approve(
+                EggHub_Address,
+                250 * Number(num)
+              );
+              await res.wait();
+
+              if (allowance.toString() / 10 ** 6 >= 250 * num) {
+                const egg_contract = new Contract(
+                  EggHub_Address,
+                  EggHub_Abi,
+                  provider.getSigner()
+                );
+                const tx = await egg_contract.mintUSDC(currentAcc, num);
+                await tx.wait();
+                await toast.success("Successfully Minted.", { theme: "dark" });
+                await reset();
+                await setLoading(false);
+              } else {
+                toast.error("You need to approve correct amount USDC.", {
+                  theme: "dark",
+                });
+                await setLoading(false);
+              }
+            } else {
+              toast.error("Insufficient USDC Balance.", { theme: "dark" });
+              await setLoading(false);
+            }
+          } catch (error) {
             await setLoading(false);
-          } else {
-            toast.error("Insufficient USDT Balance.", { theme: "dark" });
           }
-        } catch (error) {
-          await setLoading(false);
+        } else {
+          try {
+            const contract = new Contract(
+              USDT_Address,
+              USDT_Abi,
+              provider.getSigner()
+            );
+            const balance = await contract.balanceOf(currentAcc);
+
+            if (Number(balance.toString()) / 10 ** 6 > 0) {
+              let allowance = await contract.allowance(
+                currentAcc,
+                EggHub_Address
+              );
+
+              const res = await contract.approve(
+                EggHub_Address,
+                250 * Number(num)
+              );
+              await res.wait();
+
+              if (allowance.toString() / 10 ** 6 >= 250 * num) {
+                const egg_contract = new Contract(
+                  EggHub_Address,
+                  EggHub_Abi,
+                  provider.getSigner()
+                );
+                const tx = await egg_contract.mintUSDT(num);
+                await tx.wait();
+                await toast.success("Successfully Minted.", { theme: "dark" });
+                await reset();
+                await setLoading(false);
+              } else {
+                toast.error("You need to approve correct amount USDT.", {
+                  theme: "dark",
+                });
+                await setLoading(false);
+              }
+            } else {
+              toast.error("Insufficient USDT Balance.", { theme: "dark" });
+              await setLoading(false);
+            }
+          } catch (error) {
+            await setLoading(false);
+          }
         }
       }
     } else {
@@ -217,26 +252,37 @@ export const Landing: React.FC = () => {
                   <span className={"react-switch-button"} />
                 </label>
               </SwitchBtn>
-              <GitbookButton
-                className="check"
-                onClick={() => !loading && connect()}
-                style={{ borderRadius: "15px", width: "130px", height: "40px" }}
-              >
-                {currentAcc ? (
-                  loading ? (
-                    <ReactLoading
-                      type={"spokes"}
-                      color={"#0098e4"}
-                      height={"30px"}
-                      width={"30px"}
-                    />
+
+              {status ? (
+                <GitbookButton
+                  className="check"
+                  onClick={() => !loading && status && connect()}
+                  style={{
+                    borderRadius: "15px",
+                    width: "130px",
+                    height: "40px",
+                  }}
+                >
+                  {currentAcc ? (
+                    loading ? (
+                      <ReactLoading
+                        type={"spokes"}
+                        color={"#0098e4"}
+                        height={"30px"}
+                        width={"30px"}
+                      />
+                    ) : (
+                      `${toggle ? "USDC" : "USDT"} Mint`
+                    )
                   ) : (
-                    `${toggle ? "USDC" : "USDT"} Mint`
-                  )
-                ) : (
-                  "Connect Wallet"
-                )}
-              </GitbookButton>
+                    "Connect Wallet"
+                  )}
+                </GitbookButton>
+              ) : (
+                <span style={{ marginTop: "10px", fontSize: "25px" }}>
+                  Paused
+                </span>
+              )}
             </MintContainer>
           </MintFrom>
         )}
