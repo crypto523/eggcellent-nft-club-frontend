@@ -108,30 +108,23 @@ export const Landing: React.FC = () => {
                 currentAcc,
                 EggHub_Address
               );
-
-              const res = await contract.approve(
-                EggHub_Address,
-                250 * Number(num)
-              );
-              await res.wait();
-
-              if (allowance.toString() / 10 ** 6 >= 250 * num) {
-                const egg_contract = new Contract(
+              if (allowance.toString() / 10 ** 6 < 250 * num) {
+                const res = await contract.approve(
                   EggHub_Address,
-                  EggHub_Abi,
-                  provider.getSigner()
+                  250 * Number(num)
                 );
-                const tx = await egg_contract.mintUSDC(currentAcc, num);
-                await tx.wait();
-                await toast.success("Successfully Minted.", { theme: "dark" });
-                await reset();
-                await setLoading(false);
-              } else {
-                toast.error("You need to approve correct amount USDC.", {
-                  theme: "dark",
-                });
-                await setLoading(false);
+                await res.wait();
               }
+              const egg_contract = new Contract(
+                EggHub_Address,
+                EggHub_Abi,
+                provider.getSigner()
+              );
+              const tx = await egg_contract.mintUSDC(currentAcc, num);
+              await tx.wait();
+              await toast.success("Successfully Minted.", { theme: "dark" });
+              await reset();
+              await setLoading(false);
             } else {
               toast.error("Insufficient USDC Balance.", { theme: "dark" });
               await setLoading(false);
@@ -153,30 +146,24 @@ export const Landing: React.FC = () => {
                 currentAcc,
                 EggHub_Address
               );
-
-              const res = await contract.approve(
-                EggHub_Address,
-                250 * Number(num)
-              );
-              await res.wait();
-
-              if (allowance.toString() / 10 ** 6 >= 250 * num) {
-                const egg_contract = new Contract(
+              if (allowance.toString() / 10 ** 6 < 250 * num) {
+                const res = await contract.approve(
                   EggHub_Address,
-                  EggHub_Abi,
-                  provider.getSigner()
+                  250 * Number(num)
                 );
-                const tx = await egg_contract.mintUSDT(num);
-                await tx.wait();
-                await toast.success("Successfully Minted.", { theme: "dark" });
-                await reset();
-                await setLoading(false);
-              } else {
-                toast.error("You need to approve correct amount USDT.", {
-                  theme: "dark",
-                });
-                await setLoading(false);
+                await res.wait();
               }
+
+              const egg_contract = new Contract(
+                EggHub_Address,
+                EggHub_Abi,
+                provider.getSigner()
+              );
+              const tx = await egg_contract.mintUSDT(num);
+              await tx.wait();
+              await toast.success("Successfully Minted.", { theme: "dark" });
+              await reset();
+              await setLoading(false);
             } else {
               toast.error("Insufficient USDT Balance.", { theme: "dark" });
               await setLoading(false);
@@ -256,7 +243,7 @@ export const Landing: React.FC = () => {
               {!status ? (
                 <GitbookButton
                   className="check"
-                  onClick={() => !loading && !status && connect()}
+                  onClick={() => !loading && connect()}
                   style={{
                     borderRadius: "15px",
                     width: "130px",
