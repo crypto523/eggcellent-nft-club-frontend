@@ -43,7 +43,13 @@ export const AppSidebar: React.FC<SidebarProps> = ({ isshow, onClose }) => {
               <MintButton />
             </div>
           </div>
-          <NavMint onClick={() => window.open("https://WithPaper.com")}>
+          <NavMint
+            onClick={() =>
+              window.open(
+                "https://withpaper.com/checkout/182c8891-fe98-4d39-a101-d4ae6de554b1"
+              )
+            }
+          >
             <img src="/assets/images/paper-icon.svg" alt="" />
             Mint
           </NavMint>

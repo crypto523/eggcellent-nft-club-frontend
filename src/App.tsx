@@ -21,7 +21,6 @@ const App: React.FC = () => {
           infuraId: "38ca4311ea3e4be3a2a1b4f2abd4b8fb",
           rpc: {
             137: "https://rpc-mainnet.maticvigil.com",
-            80001: "https://rpc-mumbai.maticvigil.com",
           },
         },
       },
@@ -46,9 +45,9 @@ const App: React.FC = () => {
     web3Modal.clearCachedProvider();
   }
   const handleChainChanged = (chainId: string) => {
-    if (chainId === "0x13881" || chainId === "0x89") {
+    if (chainId === "0x89") {
     } else {
-      toast.error("Please select Polygon mainnet or Mumbai network", {
+      toast.error("Please select Polygon mainnet.", {
         theme: "dark",
       });
       setProvider(null);
@@ -56,10 +55,7 @@ const App: React.FC = () => {
   };
   async function connect() {
     try {
-      if (
-        window.ethereum.chainId === "0x13881" ||
-        window.ethereum.chainId === "0x89"
-      ) {
+      if (window.ethereum.chainId === "0x89") {
         const web3Provider = await web3Modal.connect();
 
         web3Provider.on("accountsChanged", accountsChanged);
@@ -72,7 +68,7 @@ const App: React.FC = () => {
 
         setProvider(provider);
       } else {
-        toast.error("Please select Polygon mainnet or Mumbai network", {
+        toast.error("Please select Polygon mainnet.", {
           theme: "dark",
         });
       }

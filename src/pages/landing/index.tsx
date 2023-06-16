@@ -108,10 +108,10 @@ export const Landing: React.FC = () => {
                 currentAcc,
                 EggHub_Address
               );
-              if (allowance.toString() / 10 ** 6 < 250 * num) {
+              if (allowance.toString() / 10 ** 6 < 500 * num) {
                 const res = await contract.approve(
                   EggHub_Address,
-                  250 * Number(num)
+                  500 * Number(num)
                 );
                 await res.wait();
               }
@@ -130,13 +130,13 @@ export const Landing: React.FC = () => {
               await setLoading(false);
             }
           } catch (error: any) {
-            if(error.data != undefined) {
+            if (error.data !== undefined) {
               if (error.data.message.includes("Exceeds max supply!")) {
                 toast.error("Exceeds max supply!", { theme: "dark" });
-              }else{
+              } else {
                 toast.error("Transaction error!", { theme: "dark" });
-              }              
-            }else{
+              }
+            } else {
               toast.error("Transaction rejected!", { theme: "dark" });
             }
             await setLoading(false);
@@ -155,10 +155,10 @@ export const Landing: React.FC = () => {
                 currentAcc,
                 EggHub_Address
               );
-              if (allowance.toString() / 10 ** 6 < 250 * num) {
+              if (allowance.toString() / 10 ** 6 < 500 * num) {
                 const res = await contract.approve(
                   EggHub_Address,
-                  250 * Number(num)
+                  500 * Number(num)
                 );
                 await res.wait();
               }
@@ -178,13 +178,13 @@ export const Landing: React.FC = () => {
               await setLoading(false);
             }
           } catch (error: any) {
-            if(error.data != undefined) {
+            if (error.data !== undefined) {
               if (error.data.message.includes("Exceeds max supply!")) {
                 toast.error("Exceeds max supply!", { theme: "dark" });
-              }else{
+              } else {
                 toast.error("Transaction error!", { theme: "dark" });
-              }              
-            }else{
+              }
+            } else {
               toast.error("Transaction rejected!", { theme: "dark" });
             }
             await setLoading(false);
