@@ -7,6 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Web3Modal from "web3modal";
 import WalletConnectProvider from "@walletconnect/ethereum-provider";
 import { providers } from "ethers";
+import { MyMark } from "./modules/MyMark";
 
 const App: React.FC = () => {
   const [provider, setProvider] = useState<any>(null);
@@ -95,6 +96,7 @@ const App: React.FC = () => {
         </Routes>
       </Router>
       <ToastContainer />
+      <MyMark />
     </EthereumContext.Provider>
   );
 };
